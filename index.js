@@ -18,6 +18,10 @@ let boutonStart = document.querySelector(".start");
 //FUNCTION
 function start() {
     reponse = prompt("Ecrivez le mot de la partie.").toUpperCase();// prompt pour faire une saisie et toUpperCase pour mettre en majuscule
+    if (/[^a-zA-Z-]/.test(reponse)) {
+        alert("Erreur : n'utilisez que des lettres ou des tirets !");
+        reponse = ""; // On vide la réponse car elle est invalide
+    }
     for (let i = 0; i < reponse.length; i++) {
         tiret.push("_");
     };
