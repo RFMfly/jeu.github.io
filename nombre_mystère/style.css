@@ -15,8 +15,8 @@ a {
     padding: 7px;
     text-decoration: none;
     color: #1e2a20;
-    background-color: #faa513e8;
-    box-shadow: -10px 7px 10px #A24936;
+    background-color: #FAA613;
+    box-shadow: -10px 7px 10px #053C5E;
     border-radius: 5px;
     font-size: max(25px, 1vw);
 }
@@ -30,3 +30,61 @@ a:hover {
     color: #F2E9E4;
 }
 /*CORPS DU JEU*/
+#confetti-canvas {
+  position: fixed; 
+  z-index: 999; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh; 
+  pointer-events: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 150vw;
+    margin: 0;
+    gap: 10px;
+    background-color: #A31621;
+    color: #F2E9E4;
+    font-family: 'times new roman', times, serif;
+}
+
+/* EACDC2  053C5E*/
+
+h1 {
+    font-size: 35px;
+}
+
+
+button {
+    width: 100%;
+    max-width: 150px;
+    background-color: #053C5E;
+    color: #F2E9E4;
+    border: none;
+    box-shadow: -10px 2px 10px #FAA613;
+    border-radius: 5px;
+    font-size: max(16px, 1vw);
+}
+
+input {
+    width: 100%;
+    max-width: 180px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.zone-indication{
+    margin-bottom: 50px;
+    display:block;
+}
+.zone-bravo{
+    margin-bottom: 50px;
+    display:none;
+}
