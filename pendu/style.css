@@ -1,3 +1,35 @@
+/*BOUTTON ACCUEIL*/
+header {
+    display: flex;
+    align-self: flex-start;
+    align-items: flex-start;
+
+
+}
+i {
+    margin-right: 5px;
+}
+
+a {
+    margin-left: 7vw;
+    padding: 7px;
+    text-decoration: none;
+    color: #1e2a20;
+    background-color: #faa513e8;
+    box-shadow: -10px 7px 10px #A24936;
+    border-radius: 5px;
+    font-size: max(25px, 1vw);
+}
+
+a:hover {
+
+    background-color: #A24936;
+    box-shadow: -10px 7px 10px #faa513e8;
+    border-radius: 5px;
+    font-size: max(25px, 1vw);
+    color: #F2E9E4;
+}
+/*CORPS DU JEU*/
 body {
     display: flex;
     flex-direction: column;
@@ -12,21 +44,7 @@ body {
     font-family: 'times new roman', times, serif;
 }
 
-header {
-    display: flex;
-    align-self: flex-start;
-    align-items: flex-start;
-    margin-left: 7vw;
-    padding: 7px;
-    background-color: #faa513e8;
-    color: #1e2a20;
-    box-shadow: -10px 7px 10px #A24936;
-    border-radius: 5px;
-    font-size: max(25px, 1vw);
-}
-i{
-    margin-right: 5px;
-}
+
 h1 {
     font-size: 35px;
 }

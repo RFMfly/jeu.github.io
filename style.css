@@ -15,7 +15,10 @@ a:hover {
   background: #721817;
   color: #C0D6DF;
   box-shadow: -1px 1px 2px #721817;
-  border: 2px solid #721817;
-  border-radius: 15px;
+  border: px solid #721817;
+  border-radius: 10px;
   padding: 3px;
+}
+li{
+    margin-bottom: 4px;
 }
