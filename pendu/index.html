@@ -11,16 +11,17 @@
 <header>
     <a href="../index.html"><i class="bi bi-house"> </i>Acceuil</a>
 </header>
+
 <body>
-    
+
     <button class="start" type="button">Démarrer</button>
     <h1>Voici le mot</h1>
     <div class="div-theme" id="div-theme">
-        <label class="theme"for="topic-select">Choisissez un thème (avant de démarrer)&nbsp;:</label>
+        <label class="theme" for="topic-select">Choisissez un thème (avant de démarrer)&nbsp;:</label>
         <p class="info">Après avoir sélectionner un thème appuyer sur "Démarrer".</p>
         <select class="info-option" name="topic" id="topic-select">
             <option value="">--Veuillez choisir une option--</option>
-            <option value="Metiers">Méties</option>
+            <option value="Metiers">Métiers</option>
             <option value="Objets">Objets</option>
             <option value="Animaux">Animaux</option>
             <option value="Fruits">Fruits</option>
@@ -30,6 +31,7 @@
             <option value="Espace">Espace</option>
         </select>
     </div>
+    <p class="zonebravo" id="ma-zone-bravo"></p>
     <p class="zonependu" id="ma-zone-pendu"></p>
 
     <input type="text" id="name" name="name" required minlength="0" maxlength="1" size="12" />
@@ -39,6 +41,7 @@
     <p class="lettrefaux" id="lettre-fausse"></p>
 
     <button class="reset" type="button">Réinitialiser</button>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="mots.js"></script>
     <script src="index.js"></script>
 

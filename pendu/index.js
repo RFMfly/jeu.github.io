@@ -9,6 +9,7 @@ let aleatoire = false;
 //Balise P -> ZONE DE TEXTE
 let zoneTexte = document.getElementById("ma-zone-pendu"); //sert a établir la zone du texte
 let zoneLettreFausse = document.getElementById("lettre-fausse"); //sert a établir la zone du texte
+let zoneBravo = document.getElementById("ma-zone-bravo");
 
 //BOUTON ET INPUT ET LISTE
 let boutonOk = document.querySelector(".check");
@@ -17,6 +18,7 @@ let theme = document.getElementById("div-theme");
 let boutonReset = document.querySelector(".reset");
 let boutonStart = document.querySelector(".start");
 let topicWord = document.querySelector("#topic-select");
+let confettis = document.querySelector('#confetti-canvas');
 
 //FUNCTION
 function start() {
@@ -63,7 +65,48 @@ function start() {
 }
 function win() {
     if (!tiret.includes("_")) { // S'il n'y a plus de "_" alors c'est gagné
-        alert(`Bravo vous avez touver le mot ${reponse} !!`)
+        var end = Date.now() + (15 * 1000);
+
+        // go Buckeyes!
+        let endconfettis = Date.now() + (9 * 300); //durée confettis
+        let colorsconfettis = ['#053C5E', '#ffffff'];
+
+        (function frame() {
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 250,
+                origin: { y: 0 },
+                colors: colorsconfettis
+            });
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 250,
+                origin: { y: 1 },
+                colors: colorsconfettis
+            });
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 250,
+                origin: { x: 0 },
+                colors: colorsconfettis
+            });
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 250,
+                origin: { x: 1 },
+                colors: colorsconfettis
+            });
+
+            if (Date.now() < endconfettis) {
+                requestAnimationFrame(frame);
+            }
+        }());
+        zoneBravo.style.display = "block";
+        zoneBravo.textContent = `Bravo vous avez touver le mot !!`
         jeuEtat = false
     }
     input.value = ""; // vide le champ après validation
@@ -78,7 +121,6 @@ function verifierLettre() {
     let trouve = false;
 
     for (let i = 0; i < reponse.length; i++) {
-        win()
 
         if (tiret.includes(essais) || lettreS.includes(essais)) { // vérifi si essaie est dans tiret ou lettreS
             input.value = ""; //vider la zone de remplissage
@@ -99,6 +141,8 @@ function verifierLettre() {
         lettreS.push(essais);
         zoneLettreFausse.textContent = lettreS.join(" ");
     }
+    win()
+
     input.value = ""; // vide le champ après validation
 };
 
@@ -109,6 +153,7 @@ function reset() { //Reset le jeu
     lettreS = []
     menuvisible = false;
     theme.style.display = "none"
+    zoneBravo.style.display = "none";
     jeuEtat = true
     zoneTexte.textContent = tiret.join(" "); // Pour afficher les tirets
     zoneLettreFausse.textContent = lettreS.join(" ");

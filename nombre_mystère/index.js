@@ -1,7 +1,6 @@
 // VARIABLE
 let reponse = Math.floor(Math.random() * 100 + 1);//commence à 1 et finit à 100
 
-let colorsconfettis = ['#053C5E', '#ffffff'];
 
 
 //Balise P -> ZONE DE TEXTE
@@ -40,6 +39,8 @@ function verifierChiffre() {
     }
     if (essais == reponse) { //Gagner
         let endconfettis = Date.now() + (9 * 300); //durée confettis
+        let colorsconfettis = ['#053C5E', '#ffffff'];
+
         (function frame() {
             confetti({
                 particleCount: 5,

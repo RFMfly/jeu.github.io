@@ -28,6 +28,17 @@ a:hover {
     color: #F2E9E4;
 }
 /*CORPS DU JEU*/
+#confetti-canvas {
+  position: fixed; 
+  z-index: 999; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh; 
+  pointer-events: none;
+}
+
+
 body {
     display: flex;
     flex-direction: column;
@@ -77,6 +88,10 @@ input {
     margin-bottom: 18px;
     border-radius: 10px;
     text-align: center;
+}
+
+.zonebravo{
+    display:none;
 }
 
 .lettrefaux,
