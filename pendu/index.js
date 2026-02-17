@@ -63,6 +63,21 @@ function start() {
     zoneLettreFausse.textContent = lettreS.join(" ");
     input.value = "";
 }
+
+function reset() { //Reset le jeu
+    tiret = []
+    reponse = []
+    lettreS = []
+    menuvisible = false;
+    theme.style.display = "none"
+    zoneBravo.style.display = "none";
+    jeuEtat = true
+    zoneTexte.textContent = tiret.join(" "); // Pour afficher les tirets
+    zoneLettreFausse.textContent = lettreS.join(" ");
+    input.value = "";
+
+};
+
 function win() {
     if (!tiret.includes("_")) { // S'il n'y a plus de "_" alors c'est gagné
         var end = Date.now() + (15 * 1000);
@@ -148,19 +163,7 @@ function verifierLettre() {
 };
 
 
-function reset() { //Reset le jeu
-    tiret = []
-    reponse = []
-    lettreS = []
-    menuvisible = false;
-    theme.style.display = "none"
-    zoneBravo.style.display = "none";
-    jeuEtat = true
-    zoneTexte.textContent = tiret.join(" "); // Pour afficher les tirets
-    zoneLettreFausse.textContent = lettreS.join(" ");
-    input.value = "";
 
-};
 
 
 //ADDEVENTLISTENER
