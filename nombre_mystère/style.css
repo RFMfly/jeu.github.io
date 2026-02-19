@@ -14,17 +14,17 @@ a {
     margin-left: 7vw;
     padding: 7px;
     text-decoration: none;
-    color: #1e2a20;
-    background-color: #FAA613;
-    box-shadow: -10px 7px 10px #A24936;
+    color: #ffeee8;
+    background-color: #8D6A9F;
+    box-shadow: -10px 7px 10px #7B2D26 ;
     border-radius: 5px;
     font-size: max(25px, 1vw);
 }
 
 a:hover {
 
-    background-color: #A24936;
-    box-shadow: -10px 7px 10px #faa513e8;
+    background-color: #7B2D26;
+    box-shadow: -10px 7px 10px #8D6A9F;
     border-radius: 5px;
     font-size: max(25px, 1vw);
     color: #F2E9E4;
@@ -49,8 +49,8 @@ body {
     max-width: 150vw;
     margin: 0;
     gap: 10px;
-    background-color: #3E5641;
-    color: #F2E9E4;
+    background-color: #E2DADB;
+    color: #131313;
     font-family: 'times new roman', times, serif;
 }
 
@@ -58,16 +58,17 @@ body {
 
 h1 {
     font-size: 35px;
+    color: #19535F;
 }
 
 
 button {
     width: 100%;
     max-width: 130px;
-    background-color: #A24936;
-    color: #F2E9E4;
+    background-color: #7B2D26;
+    color: #d0cccc;
     border: none;
-    box-shadow: 0px 0px 30px #FAA613;
+    box-shadow: 0px 0px 30px #8D6A9F;
     border-radius: 5px;
     font-size: max(16px, 1vw);
 }
@@ -90,7 +91,10 @@ input {
 }
 
 .zone-historique{
-    color:#F2E9E4;
     font-size: 20px;
     text-shadow: none;
+}
+
+.zone-bravo, .zone-historique, .zone-indication {
+    color: #19535F;
 }

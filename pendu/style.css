@@ -13,16 +13,16 @@ a {
     padding: 7px;
     text-decoration: none;
     color: #1e2a20;
-    background-color: #faa513e8;
-    box-shadow: -10px 7px 10px #053C5E ;
+    background-color: #F3DFA2;
+    box-shadow: -10px 7px 10px #bb4530e1 ;
     border-radius: 5px;
     font-size: max(25px, 1vw);
 }
 
 a:hover {
 
-    background-color: #A24936;
-    box-shadow: -10px 7px 10px #faa513e8;
+    background-color: #BB4430;
+    box-shadow: -10px 7px 10px #F3DFA2;
     border-radius: 5px;
     font-size: max(25px, 1vw);
     color: #F2E9E4;
@@ -48,14 +48,15 @@ body {
     max-width: 150vw;
     margin: 0;
     gap: 10px;
-    background-color: #A31621;
-    color: #F2E9E4;
+    background-color: #7EBDC2;
+    color: #060606;
     font-family: 'times new roman', times, serif;
 }
 
 
 h1 {
     font-size: 35px;
+    color: #BB4430;
 }
 
 .div-theme {
@@ -74,10 +75,10 @@ h1 {
 button {
     width: 100%;
     max-width: 120px;
-    background-color: #053C5E ;
-    color: #F2E9E4;
+    background-color: #231F20 ;
+    color: #d4d3d3;
     border: none;
-    box-shadow: 0px 0px 20px #FAA613;
+    box-shadow: 0px 0px 20px #F3DFA2;
     border-radius: 5px;
     font-size: max(16px, 1vw);
 }
@@ -97,6 +98,7 @@ input {
 .lettrefaux,
 .zonependu {
     margin-bottom: 50px;
+    color: #031927;
 }
 
 .lettrefaux {

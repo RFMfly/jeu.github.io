@@ -114,13 +114,13 @@ function addhistorique() {
         monSpan.textContent = nombre;
 
         if (Math.abs(nombre - reponse) <= 20) {// Vérification de la proximité (reponse - 5 <= nombre <= reponse + 5)
-            monSpan.style.color = "#f8c048";
+            monSpan.style.color = "#ffc400";
         }
         if (Math.abs(nombre - reponse) <= 10) {// Vérification de la proximité (reponse - 5 <= nombre <= reponse + 5)
-            monSpan.style.color = "#ff9633";
+            monSpan.style.color = "#fc7b02";
         }
         if (Math.abs(nombre - reponse) <= 5) {// Vérification de la proximité (reponse - 5 <= nombre <= reponse + 5)
-            monSpan.style.color = "#ff4f4f";
+            monSpan.style.color = "#ff2424";
         }
         zoneHistorique.appendChild(monSpan);// Ajout au HTML
 

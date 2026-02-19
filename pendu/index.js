@@ -84,7 +84,7 @@ function win() {
 
         // go Buckeyes!
         let endconfettis = Date.now() + (9 * 200); //durée confettis
-        let colorsconfettis = ['#ffa200', '#ffffff','#c5482c'];
+        let colorsconfettis = ['#ffa200', '#031927','#c5482c'];
         reset()
 
         (function frame() {
