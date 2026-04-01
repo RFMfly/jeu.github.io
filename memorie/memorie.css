@@ -16,6 +16,16 @@
 .carte.retournee {
     transform: rotateY(180deg);
 }  
+.carte.match {
+    
+    border-color: #1e8449;
+    cursor: default;
+}
+.carte.match .derriere,
+.carte.match .devant {
+    border-color: #1e8449;
+    background-color: #0bb4228b;
+}
 
 .derriere, .devant {
     position: absolute;
@@ -25,16 +35,19 @@
     display: flex;
     justify-content: center;
     border-radius: 8px;
-    border: 2px solid #333;
+    border: 2px solid #3f1311;
 }
 
 .derriere {
-    background-color: #2c3e50;
+    background-color: #551916;
     color: white;
+    display: flex;
+    align-items: center;
+    
 }
 .devant{
     display: flex;
-        transform: rotateY(180deg);
-
+    align-items: center;
+    transform: rotateY(180deg);
     background-color: white;
 }

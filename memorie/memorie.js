@@ -37,28 +37,27 @@ function retourner() {
     } else {
         // C'est le deuxième clic
         deuxiemeCarte = this;
-        stopclick = true; // On bloque le jeu
+        stopclick = true;
         verifier(); // On lance la comparaison
     }
 }
 
 function verifier() {
     if (premiereCarte.dataset.emoji == deuxiemeCarte.dataset.emoji) {
-        // GAGNÉ : On les laisse retournées et on libère le jeu
+        premiereCarte.classList.add("match");
+        deuxiemeCarte.classList.add("match");
         premiereCarte = null;
         deuxiemeCarte = null;
         stopclick = false;
     } else {
-        // PERDU : On attend 1 seconde avant de les cacher
         setTimeout(() => {
             premiereCarte.classList.remove("retournee");
             deuxiemeCarte.classList.remove("retournee");
             
-            // On remet tout à zéro APRÈS l'animation
             premiereCarte = null;
             deuxiemeCarte = null;
             stopclick = false;
-        }, 1000);
+        }, 2000);
     }
 }
 
