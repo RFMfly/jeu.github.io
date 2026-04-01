@@ -1,100 +1,108 @@
-/*BOUTTON ACCUEIL*/
-header {
-    display: flex;
-    align-self: flex-start;
-    align-items: flex-start;
-
-
-}
-i {
-    margin-right: 5px;
-}
-
-a {
-    margin-left: 7vw;
-    padding: 7px;
-    text-decoration: none;
-    color: #ffeee8;
-    background-color: #8D6A9F;
-    box-shadow: -10px 7px 10px #7B2D26 ;
-    border-radius: 5px;
-    font-size: max(25px, 1vw);
-}
-
-a:hover {
-
-    background-color: #7B2D26;
-    box-shadow: -10px 7px 10px #8D6A9F;
-    border-radius: 5px;
-    font-size: max(25px, 1vw);
-    color: #F2E9E4;
-}
-/*CORPS DU JEU*/
-#confetti-canvas {
-  position: fixed; 
-  z-index: 999; 
-  top: 0; 
-  left: 0; 
-  width: 100vw; 
-  height: 100vh; 
-  pointer-events: none;
-}
-
+/* --- COULEURS ET FOND --- */
 body {
+    margin: 0;
+    min-height: 100vh;
+    /* On garde ton dégradé bleu nuit */
+    background: linear-gradient(135deg, #1a1a2e 0%, #0e294d 45%, #1e405a 100%);
+    color: #f7f7f7;
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    max-width: 150vw;
-    margin: 0;
-    gap: 10px;
-    background-color: #E2DADB;
-    color: #131313;
-    font-family: 'times new roman', times, serif;
+    padding: 20px;
+    height: 100vh; 
+    width: 100vw; 
+    overflow: hidden;
 }
 
-/* EACDC2  053C5E*/
+/* --- LE BOUTON ACCUEIL --- */
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+}
+
+header a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(27, 42, 88, 0.83);
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(204, 230, 255, 0.35);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    font-size: min(22px, 2.6vw);
+}
+
+header a:hover {
+    background: linear-gradient(135deg, #2f5ca2, #742d8a);
+}
+
+/* --- LE RECTANGLE DE JEU (Nombre Mystère & Pendu) --- */
+.jeu {
+    background: rgba(8, 18, 45, 0.9); /* Le fameux rectangle d'arrière-plan */
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    border: 1px solid #4834d4;
+}
 
 h1 {
-    font-size: 35px;
-    color: #19535F;
+    color: #00d2d3; /* Titre en Cyan */
+    margin-top: 0;
 }
 
-
-button {
-    width: 100%;
-    max-width: 130px;
-    background-color: #7B2D26;
-    color: #d0cccc;
-    border: none;
-    box-shadow: 0px 0px 30px #8D6A9F;
-    border-radius: 5px;
-    font-size: max(16px, 1vw);
-}
-
+/* --- LES INPUTS ET TEXTES --- */
 input {
-    width: 100%;
-    max-width: 180px;
-    margin-bottom: 18px;
-    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: 2px solid #4834d4;
+    background: #1a1a2e;
+    color: white;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.zone-indication, .zone-bravo, .zone-historique, .zone-pendu {
+    margin: 15px 0;
+    font-weight: bold;
+    color: #00d2d3;
+}
+
+/* --- LES BOUTONS --- */
+
+button, .check, .reset {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    max-width: 240px;
+    min-height: 48px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    color: #fff;
+    background: linear-gradient(135deg, #6a0572, #4834d4);
+    box-shadow: 0 8px 20px rgba(49, 59, 128, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+button:hover{
+    transform: scale(1.04);
+    background: linear-gradient(135deg, #4834d4, #00d2d3);
+}
+
+#name{
     text-align: center;
-}
-
-.zone-indication{
-    margin-bottom: 50px;
-    display:block;
-}
-.zone-bravo{
-    margin-bottom: 50px;
-    display:none;
-}
-
-.zone-historique{
-    font-size: 20px;
-    text-shadow: none;
-}
-
-.zone-bravo, .zone-historique, .zone-indication {
-    color: #19535F;
 }

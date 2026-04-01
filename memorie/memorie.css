@@ -1,30 +1,85 @@
+/* --- Style global (Identique aux autres jeux) --- */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0e294d 45%, #1e405a 100%);
+    color: #f7f7f7;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh; 
+    width: 100vw; 
+    overflow: hidden;
+}
+
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 20;
+}
+
+header a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(27, 42, 88, 0.83);
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(204, 230, 255, 0.35);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    font-size: min(22px, 2.6vw);
+}
+
+header a:hover {
+    background: linear-gradient(135deg, #2f5ca2, #742d8a);
+}
+
+h1 {
+    margin: 0;
+    background: linear-gradient(45deg, #00d2d3, #a29bfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+p {
+    color: #98c9ff;
+    text-align: center;
+    max-width: 600px;
+}
+
+/* --- Grille du jeu --- */
 .jeu {
     display: grid;
-    grid-template-columns: repeat(5, 100px);
-    gap: 10px;
+    grid-template-columns: repeat(5, 80px); /* 5 colonnes */
+    gap: 15px;
     perspective: 1000px;
-    font-size: 30px;
-}  
+    background: rgba(8, 18, 45, 0.8);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #4834d4;
+}
+
+/* --- Design des Cartes --- */
 .carte {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     position: relative;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s;
     transform-style: preserve-3d;
     cursor: pointer;
-}  
+}
+
 .carte.retournee {
     transform: rotateY(180deg);
-}  
-.carte.match {
-    
-    border-color: #1e8449;
-    cursor: default;
-}
-.carte.match .derriere,
-.carte.match .devant {
-    border-color: #1e8449;
-    background-color: #0bb4228b;
 }
 
 .derriere, .devant {
@@ -34,20 +89,57 @@
     backface-visibility: hidden;
     display: flex;
     justify-content: center;
-    border-radius: 8px;
-    border: 2px solid #3f1311;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #4834d4;
+    font-size: 2rem;
 }
 
+/* Dos de la carte (caché) */
 .derriere {
-    background-color: #551916;
-    color: white;
-    display: flex;
-    align-items: center;
-    
+    background: #16213e;
+    color: #00d2d3;
+    font-weight: bold;
 }
-.devant{
-    display: flex;
-    align-items: center;
+
+/* Face de la carte (révélée) */
+.devant {
+    background: #ffffff;
     transform: rotateY(180deg);
-    background-color: white;
+}
+
+/* Quand une paire est trouvée */
+.carte.match .devant {
+    border-color: #00d2d3;
+    background-color: #e0ffff;
+    box-shadow: 0 0 15px rgba(0, 210, 211, 0.5);
+}
+
+/* --- Bouton Réinitialiser --- */
+button {
+    background: linear-gradient(135deg, #6a0572, #4834d4);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #4834d4, #00d2d3);
+    box-shadow: 0 5px 15px rgba(0, 210, 211, 0.3);
+}
+
+/* Adaptation mobile */
+@media (max-width: 500px) {
+    .jeu {
+        grid-template-columns: repeat(4, 70px);
+    }
+    .carte {
+        width: 70px;
+        height: 70px;
+    }
 }

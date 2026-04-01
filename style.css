@@ -1,24 +1,70 @@
-body{
-    background-color: #7ebec246;
-    font-family: 'times new roman', times, serif;
+/* Palette de couleurs :
+   Sombre : #1a1a2e
+   Violet : #6a0572
+   Cyan : #00d2d3
+   Texte : #ffffff
+*/
+
+body {
+    background-color: #1a1a2e; 
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+    height: 100vh; 
+    width: 100vw; 
+    overflow: hidden;
 }
-h1{
-    color: #721817;
+
+.arcade-container {
+    background: #16213e;
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 1px solid #4834d4;
 }
-a{
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.game-grid {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    display: block;
+    padding: 15px 40px;
+    color: #fff;
     text-decoration: none;
-    color: #111D4A;
-    font-size: 18px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #6a0572, #4834d4);
+    box-shadow: 0 4px 15px rgba(106, 5, 114, 0.3);
+    transition: all 0.3s ease;
+    border: none;
 }
-a:hover {
-  border-bottom: 1px solid;
-  background: #721817;
-  color: #C0D6DF;
-  box-shadow: -1px 1px 2px #7219179d;
-  border: px solid #721817;
-  border-radius: 10px;
-  padding: 3px;
+
+.btn:hover {
+    transform: scale(1.05); /* Effet de grossissement */
+    box-shadow: 0 6px 20px rgba(0, 210, 211, 0.4);
+    background: linear-gradient(135deg, #4834d4, #00d2d3);
+    color: #1a1a2e;
 }
-li{
-    margin-bottom: 4px;
+
+.btn:active {
+    transform: scale(0.98);
 }
