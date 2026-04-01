@@ -42,7 +42,7 @@ header a:hover {
 }
 
 .jeu {
-    width: min(38vw, 100%);
+    width: min(39vw, 100%);
     max-width: 760px;
     background: rgba(8, 18, 45, 0.88);
     border-radius: 22px;
