@@ -17,8 +17,7 @@ body {
     color: #fff;
     height: 100vh; 
     width: 100vw; 
-    overflow: hidden;
-}
+overflow-x: hidden;}
 
 .arcade-container {
     background: #16213e;
