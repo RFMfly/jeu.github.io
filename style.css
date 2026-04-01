@@ -1,5 +1,5 @@
 body{
-    background-color: #C0D6DF;
+    background-color: #7ebec246;
     font-family: 'times new roman', times, serif;
 }
 h1{
@@ -14,7 +14,7 @@ a:hover {
   border-bottom: 1px solid;
   background: #721817;
   color: #C0D6DF;
-  box-shadow: -1px 1px 2px #721817;
+  box-shadow: -1px 1px 2px #7219179d;
   border: px solid #721817;
   border-radius: 10px;
   padding: 3px;
