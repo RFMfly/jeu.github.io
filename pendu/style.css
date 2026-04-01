@@ -1,12 +1,12 @@
 /*BOUTTON ACCUEIL*/
 header {
-    /*position: absolute;   /* ou fixed si tu veux qu’il reste à l’écran 
-    top: 0;
-    left: 0;*/
+    top: 2vh;
+    left: 2%;
     display: flex;
     align-self: flex-start;
     align-items: flex-start;
-    padding-left: 10px;
+    padding-left: 2vw;
+    padding-top: 2vh;
     width: 18vw;
 }
 i {
@@ -17,9 +17,9 @@ a {
     
     padding: 7px;
     text-decoration: none;
-    color: #1e2a20;
-    background-color: #F3DFA2;
-    box-shadow: -10px 7px 10px #bb4530e1 ;
+    color: #F2E9E4;
+    background-color: #020aa1bf;
+    box-shadow: -10px 7px 10px #bb45308f ;
     border-radius: 5px;
     font-size: max(25px, 1vw);
 }
@@ -27,7 +27,7 @@ a {
 a:hover {
 
     background-color: #BB4430;
-    box-shadow: -10px 7px 10px #F3DFA2;
+    box-shadow: -10px 7px 10px #140fa1bf;
     border-radius: 5px;
     font-size: max(25px, 1vw);
     color: #F2E9E4;
@@ -47,15 +47,15 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #7EBDC2;
+    background-color: #7ebec246;
     color: #060606;
     font-family: 'times new roman', times, serif;
 }
 
 .jeu {
     flex-direction: column;
-    height: 100vh; /*100px*/
-    width: 43vw; /*825.6px*/
+    height: 100vh;
+    width: 43vw; 
     gap: 10px;
 }
 
@@ -84,7 +84,6 @@ button {
     background-color: #231F20 ;
     color: #d4d3d3;
     border: none;
-    box-shadow: 0px 0px 20px #F3DFA2;
     border-radius: 5px;
     font-size: max(16px, 1vw);
 }
@@ -118,8 +117,9 @@ input {
 
 .image{
     display: flex;
-    border: #031927 solid 1px;   
+    border: #031927 solid 1px;  
     width: 40vw;
     height: 400px;
-    box-shadow: #031927 0px 0px 20px;
+    box-shadow: #0319277a 0px 0px 20px;
+    margin-top: 5vh;
 }

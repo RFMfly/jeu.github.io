@@ -13,6 +13,7 @@ let zoneInfo = document.getElementById("ma-zone-info");
 let zoneTexte = document.getElementById("ma-zone-pendu");
 let zoneLettreFausse = document.getElementById("lettre-fausse");
 let zoneBravo = document.getElementById("ma-zone-bravo");
+let zoneNbfaux = document.querySelector(".nbfaux");
 
 // BOUTON ET INPUT ET LISTE
 let boutonOkstart = document.querySelector(".checkstart");
@@ -94,18 +95,18 @@ function win() {
         var end = Date.now() + (15 * 1000);
 
         // go Buckeyes!
-        let endconfettis = Date.now() + (9 * 200); //durée confettis
+        let endconfettis = Date.now() + (9 * 200); // durée confettis
         let colorsconfettis = ['#ffa200', '#031927', '#c5482c'];
-        reset()
 
-            (function frame() {
-                confetti({
-                    particleCount: 5,
-                    angle: 60,
-                    spread: 250,
-                    origin: { y: 0 },
-                    colors: colorsconfettis
-                });
+        (function frame() {
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 250,
+                origin: { y: 0 },
+                colors: colorsconfettis,
+                zIndex: 999
+            });
                 confetti({
                     particleCount: 5,
                     angle: 60,
@@ -132,27 +133,42 @@ function win() {
                     requestAnimationFrame(frame);
                 }
             }());
+
         zoneBravo.style.display = "block";
-        zoneBravo.textContent = `Bravo vous avez touver le mot !!`
-        jeuEtat = false
+        zoneBravo.textContent = `Bravo vous avez trouvé le mot !!`;
+        jeuEtat = false;
+
+        // reset after confetti has run
+        setTimeout(reset, 2500);
     }
     input.value = ""; // vide le champ après validation
 }
 
 function verifierLettre() {
     if (jeuEtat == false) {
-        return
-    };
-    let essais = input.value;  // récupère la lettre tapée
-    essais = essais.toUpperCase()
+        return;
+    }
+    let essais = input.value.trim().toUpperCase();  // récupère la lettre tapée
+
+    if (essais === "") {
+        input.value = "";
+        return;
+    }
+
+    // n'accepte que lettre A-Z ou espace
+    if (!/^[A-Z ]$/.test(essais)) {
+        alert("Entrez uniquement une lettre ou un espace.");
+        input.value = "";
+        return;
+    }
+
+    if (tiret.includes(essais) || lettreS.includes(essais)) { // vérifi si essaie est dans tiret ou lettreS
+        input.value = ""; // vider la zone de remplissage
+        return;
+    }
+
     let trouve = false;
-
     for (let i = 0; i < reponse.length; i++) {
-
-        if (tiret.includes(essais) || lettreS.includes(essais)) { // vérifi si essaie est dans tiret ou lettreS
-            input.value = ""; //vider la zone de remplissage
-            return;
-        }
         if (reponse[i] == essais) { // vérifi si essais est dans la réponse 
             for (let j = 0; j < reponse.length; j++) { //et s'il y est plusisuer fois il les affiches tous
                 if (reponse[j] == essais) {
@@ -160,7 +176,7 @@ function verifierLettre() {
                 }
             }
             zoneTexte.textContent = tiret.join(" ");
-            trouve = true
+            trouve = true;
         }
     }
 
@@ -175,8 +191,9 @@ function verifierLettre() {
         }
         lettreS.push(essais);
         zoneLettreFausse.textContent = lettreS.join(" ");
+        zoneNbfaux.textContent = lettreS.length + " / 11 lettres fausses";
         console.log(nbpendu);
-
+        
     }
 
 win()

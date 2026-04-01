@@ -38,13 +38,15 @@
         <input type="text" id="name" name="name" required minlength="0" maxlength="1" size="12" />
         <button class="check" type="button">OK</button>
 
-        <h1 class="faux">Ces lettres sont fausses : </h1>
+        <h1 class="faux">Ces lettres sont fausses  : </h1>
+        <p class="nbfaux"> </p>
         <p class="lettrefaux" id="lettre-fausse"></p>
 
 
         <button class="reset" type="button" onclick="window.location.href='demarer.html'">Réinitialiser</button>
     </div>
     <img src="" class="image">
+    <canvas id="confetti-canvas"></canvas>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="mots.js"></script>
