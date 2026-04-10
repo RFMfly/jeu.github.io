@@ -2,18 +2,41 @@ const foodTheme = ['🍎', '🍌', '🍇', '🥦', '🍕', '🍦', '🍩', '🥑
 const animalsTheme = ['🦁', '🐸', '🦒', '🐧', '🐙', '🦋', '🦉', '🐘', '🐷', '🐝'];
 const adventureTheme = ['🚀', '🚲', '🚁', '⛵', '🚜', '🛸', '🚂', '🚒', '🛹', '🎈'];
 const objectsTheme = ['🎁', '🕶️', '🎸', '☂️', '🔑', '🎨', '⚽', '⏰', '💡', '🌵'];
+let theme = [foodTheme, adventureTheme, animalsTheme, objectsTheme]
 
 let premiereCarte = null;
 let deuxiemeCarte = null;
 let stopclick = false;
 
-
 let zoneJeu = document.querySelector(".jeu");
+let btnReinitialiser = document.querySelector(".reinitialiser");
+let themeSelect = document.querySelector("#topic-select");
+let start = document.querySelector(".checkstart");
+
+
+
+
+function choisirTheme (){
+    const indexTheme = Number(themeSelect.value) ;
+
+    if (Number.isNaN(indexTheme) || !theme[indexTheme]) {
+        return null;
+    }
+
+    return theme[indexTheme];
+}
+
+
+
 function preparation() {
-    const deck = [...foodTheme, ...foodTheme]
+    const choix = choisirTheme();
+    if (!choix) return;
+
+    const deck = [...choix, ...choix]
     deck.sort(() => Math.random() - 0.5);
     generate(deck)
 }
+start.addEventListener("click", preparation);
 function generate(tab) {
     zoneJeu.innerHTML = "";
     tab.forEach(emoji => {
@@ -61,7 +84,14 @@ function verifier() {
     }
 }
 
-
-
 preparation();
+
+function reinitialiser() {
+    premiereCarte = null;
+    deuxiemeCarte = null;
+    stopclick = false;
+    preparation();
+}
+btnReinitialiser.addEventListener("click", reinitialiser);
+
 

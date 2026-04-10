@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="frf">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mémorie</title>
+    <link rel="stylesheet" href="memory.css">
+</head>
+
+<body>
+    <header>
+    <a href="../index.html"><i class="bi bi-house"> </i>Accueil</a>
+</header>
+    <h1>Bienvenue dans le Mémorie</h1>
+    <p>Ce jeu de mémoire vous met au défi de trouver les paires correspondantes.
+        Cliquez sur les cartes pour les retourner et essayez de vous souvenir de leur emplacement.
+    </p>
+    <div class="div-theme" id="div-theme">
+            <label class="theme" for="topic-select">Choisissez un thème&nbsp;:</label>
+            <select class="info-option" name="topic" id="topic-select">
+                <option value="0">Nourriture</option>
+                <option value="1">Aventure</option>
+                <option value="2">Animaux</option>
+                <option value="3">Objets</option>
+            </select>
+            <button class="checkstart" type="button">OK</button>
+        </div>
+
+    <div class="jeu">
+
+    </div>
+    <br>
+    <button class="reinitialiser">Réinitialiser le jeu</button>
+    <script src="memory.js"></script>
+</body>
+
+</html>
