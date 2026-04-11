@@ -11,8 +11,8 @@ body {
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    height: 100vh; 
-    width: 100vw; 
+    height: 100vh;
+    width: 100vw;
     overflow-x: hidden;
 }
 
@@ -50,7 +50,8 @@ h1 {
     text-transform: uppercase;
 }
 
-p, .div-theme {
+p,
+.div-theme {
     color: #98c9ff;
     text-align: center;
     max-width: 600px;
@@ -59,7 +60,8 @@ p, .div-theme {
 /* --- Grille du jeu --- */
 .jeu {
     display: grid;
-    grid-template-columns: repeat(5, 80px); /* 5 colonnes */
+    grid-template-columns: repeat(5, 80px);
+    /* 5 colonnes */
     gap: 15px;
     perspective: 1000px;
     background: rgba(8, 18, 45, 0.8);
@@ -83,7 +85,8 @@ p, .div-theme {
     transform: rotateY(180deg);
 }
 
-.derriere, .devant {
+.derriere,
+.devant {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -135,7 +138,7 @@ button:hover {
 }
 
 /*DEFIS → nb coup*/
-.defi{
+.defi {
     background: rgba(8, 18, 45, 0.316);
     padding: 5px;
     border-radius: 20px;
@@ -145,12 +148,46 @@ button:hover {
     display: none;
 }
 
+/*CONFETTIS*/
+#confetti-canvas {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+/* --- Modale de victoire --- */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+.modale {
+    background: rgb(8, 18, 45);
+    padding: 2rem;
+    border-radius: 12px;
+}
 
 /* Adaptation mobile */
 @media (max-width: 500px) {
     .jeu {
         grid-template-columns: repeat(4, 70px);
     }
+
     .carte {
         width: 70px;
         height: 70px;

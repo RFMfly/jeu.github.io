@@ -5,38 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory</title>
+
     <link rel="stylesheet" href="memory.css">
 </head>
 
 <body>
     <header>
-    <a href="../index.html"><i class="bi bi-house"> </i>Accueil</a>
-</header>
+        <a href="../index.html"><i class="bi bi-house"> </i>Accueil</a>
+    </header>
     <h1>Bienvenue dans le Memory</h1>
     <p>Ce jeu de mémoire vous met au défi de trouver les paires correspondantes.
         Cliquez sur les cartes pour les retourner et essayez de vous souvenir de leur emplacement.
     </p>
     <div class="div-theme" id="div-theme">
-            <label class="theme" for="topic-select">Choisissez un thème&nbsp;:</label>
-            <select class="info-option" name="topic" id="topic-select">
-                <option value="0">--Veuillez choisir un thème--</option>
-                <option value="1">Nourriture</option>
-                <option value="2">Aventure</option>
-                <option value="3">Animaux</option>
-                <option value="4">Objets</option>
-            </select>
-            <button class="checkstart" type="button">OK</button>
-        </div>
+        <label class="theme" for="topic-select">Choisissez un thème&nbsp;:</label>
+        <select class="info-option" name="topic" id="topic-select">
+            <option value="0">--Veuillez choisir un thème--</option>
+            <option value="1">Nourriture</option>
+            <option value="2">Aventure</option>
+            <option value="3">Animaux</option>
+            <option value="4">Objets</option>
+            <option value="5">Objets 2</option>
+        </select>
+        <button class="checkstart" type="button">OK</button>
+    </div>
     <div class="defi">
-        <p class="coups">Nombre de coups :  </p>
+        <p class="coups">Nombre de coups : </p>
         <p class="temps">Temps : 00:00</p>
     </div>
 
     <div class="jeu">
 
     </div>
+    
     <br>
     <button class="reinitialiser">Réinitialiser le jeu</button>
+    <!-- Modale de victoire -->
+    <div class="overlay">
+        <div class="modale">
+            <h2>Bravo vous avez gagné ! Vous pouvez réinitialiser le jeu.</h2>
+            <button class="reinitialiser">Réinitialiser le jeu</button>
+
+            <button class="fermermodale">OK</button>
+        </div>
+    </div>
+    <canvas id="confetti-canvas"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
     <script src="memory.js"></script>
 </body>
 
