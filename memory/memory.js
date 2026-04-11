@@ -2,28 +2,79 @@ const foodTheme = ['🍎', '🍌', '🍇', '🥦', '🍕', '🍦', '🍩', '🥑
 const animalsTheme = ['🦁', '🐸', '🦒', '🐧', '🐙', '🦋', '🦉', '🐘', '🐷', '🐝'];
 const adventureTheme = ['🚀', '🚲', '🚁', '⛵', '🚜', '🛸', '🚂', '🚒', '🛹', '🎈'];
 const objectsTheme = ['🎁', '🕶️', '🎸', '☂️', '🔑', '🎨', '⚽', '⏰', '💡', '🌵'];
-let theme = [foodTheme, adventureTheme, animalsTheme, objectsTheme]
+const theme = [foodTheme, adventureTheme, animalsTheme, objectsTheme]
 
-let premiereCarte = null;
-let deuxiemeCarte = null;
-let stopclick = false;
-
-let zoneJeu = document.querySelector(".jeu");
-let btnReinitialiser = document.querySelector(".reinitialiser");
-let themeSelect = document.querySelector("#topic-select");
-let start = document.querySelector(".checkstart");
-
-
+const gameState = {
+  premiereCarte: null,
+  deuxiemeCarte: null,
+  stopclick: false,
+  nbCoups: 0,
+  secondes: 0,
+  interval : null,
+  etatChrono: false
 
 
-function choisirTheme (){
-    const indexTheme = Number(themeSelect.value) ;
 
-    if (Number.isNaN(indexTheme) || !theme[indexTheme]) {
+};
+
+const zoneJeu = document.querySelector(".jeu");
+const btnReinitialiser = document.querySelector(".reinitialiser");
+const themeSelect = document.querySelector("#topic-select");
+const divTheme = document.querySelector(".div-theme");
+const start = document.querySelector(".checkstart");
+const defi = document.querySelector(".defi");
+const coup = document.querySelector(".coups");
+const tempsAffiche = document.querySelector('.temps');
+
+
+
+/*ZONE SCORE + TEMPS */
+function updateScore() {
+  coup.textContent = `Nombre de coups : ${gameState.nbCoups}`;
+}
+function formatTime(seconds) {
+
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+function updateTime() {
+    const resTime =formatTime(gameState.secondes)
+
+  tempsAffiche.textContent = `Temps : ${resTime}` ;
+}
+
+
+function demarrerChrono() {
+    if (gameState.etatChrono===false){
+        gameState.etatChrono=true
+        gameState.interval = setInterval(() => {
+            gameState.secondes++
+            updateTime()
+        }, 1000);
+    }
+
+}
+function arreterChrono(){
+    clearInterval(gameState.interval);
+    gameState.etatChrono= false;
+    gameState.interval = null;
+
+}
+
+/*JEU - CARTE*/
+function choisirTheme() {
+    const selectedValue = Number(themeSelect.value);
+
+    if (Number.isNaN(selectedValue) || selectedValue === 0) {
         return null;
     }
 
+    const indexTheme = selectedValue - 1;
+    if (!theme[indexTheme]) return null;
+
     return theme[indexTheme];
+    
 }
 
 
@@ -32,66 +83,90 @@ function preparation() {
     const choix = choisirTheme();
     if (!choix) return;
 
+    gameState.nbCoups = 0;
+    updateScore();
+    
+
     const deck = [...choix, ...choix]
     deck.sort(() => Math.random() - 0.5);
     generate(deck)
+    divTheme.style.display = "none";
+    defi.style.display = "grid";
 }
 start.addEventListener("click", preparation);
+
+
 function generate(tab) {
     zoneJeu.innerHTML = "";
     tab.forEach(emoji => {
-        let card = document.createElement("div");
+        const card = document.createElement("div");
         card.classList.add("carte");
         card.dataset.emoji = emoji;
         card.innerHTML = `<div class='derriere'>  ???</div> <div class='devant'> ${emoji} </div>`;
         card.addEventListener("click", retourner);
         zoneJeu.appendChild(card)
     })
+
 }
 function retourner() {
+        demarrerChrono()
     // SÉCURITÉ : On ne fait rien si le jeu est bloqué OU si on clique sur une carte déjà retournée
-    if (stopclick || this.classList.contains("retournee")) return;
+    if (gameState.stopclick || this.classList.contains("retournee")) return;
 
     this.classList.add("retournee");
 
-    if (premiereCarte == null) {
+    if (gameState.premiereCarte === null) {
         // C'est le premier clic
-        premiereCarte = this;
+        gameState.premiereCarte = this;
     } else {
         // C'est le deuxième clic
-        deuxiemeCarte = this;
-        stopclick = true;
+        gameState.deuxiemeCarte = this;
+        gameState.stopclick = true;
+        gameState.nbCoups ++;
+        updateScore();
         verifier(); // On lance la comparaison
     }
 }
 
 function verifier() {
-    if (premiereCarte.dataset.emoji == deuxiemeCarte.dataset.emoji) {
-        premiereCarte.classList.add("match");
-        deuxiemeCarte.classList.add("match");
-        premiereCarte = null;
-        deuxiemeCarte = null;
-        stopclick = false;
+    if (gameState.premiereCarte.dataset.emoji === gameState.deuxiemeCarte.dataset.emoji) {
+        gameState.premiereCarte.classList.add("match");
+        gameState.deuxiemeCarte.classList.add("match");
+        gameState.premiereCarte = null;
+        gameState.deuxiemeCarte = null;
+        gameState.stopclick = false;
     } else {
         setTimeout(() => {
-            premiereCarte.classList.remove("retournee");
-            deuxiemeCarte.classList.remove("retournee");
-            
-            premiereCarte = null;
-            deuxiemeCarte = null;
-            stopclick = false;
+            gameState.premiereCarte.classList.remove("retournee");
+            gameState.deuxiemeCarte.classList.remove("retournee");
+
+            gameState.premiereCarte = null;
+            gameState.deuxiemeCarte = null;
+            gameState.stopclick = false;
         }, 2000);
     }
 }
 
+themeSelect.selectedIndex = 0;
 preparation();
 
 function reinitialiser() {
-    premiereCarte = null;
-    deuxiemeCarte = null;
-    stopclick = false;
+    gameState.premiereCarte = null;
+    gameState.deuxiemeCarte = null;
+    gameState.stopclick = false;
+    gameState.nbCoups = 0;
+    gameState.secondes = 0;
+    themeSelect.selectedIndex = 0;
+    zoneJeu.innerHTML = "";
+    divTheme.style.display = "block";
+    defi.style.display = "none";
+    arreterChrono();
+    updateScore();
+    updateTime();
     preparation();
+
+        
+
+
 }
 btnReinitialiser.addEventListener("click", reinitialiser);
-
-
